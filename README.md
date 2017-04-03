@@ -10,3 +10,6 @@
 
 	<input value={this.state.effective_start_time} onChange={handleonchange.bind(this,'effective_start_time', 'YYYY-MM-DDTHH:mm')} type='datetime-local' placeholder='请输入生效时间'/>
 
+## 编译
+
+	babel ./src/index.js --out-file ./dist/index.js
