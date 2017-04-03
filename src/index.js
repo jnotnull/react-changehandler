@@ -1,5 +1,5 @@
 'use strict';
-import update from 'react-addons-update';
+import update from 'immutability-helper';
 
 export function handleonchange(field, format, e) {
     let eleValue = e.target.value;
