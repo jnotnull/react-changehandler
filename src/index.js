@@ -1,4 +1,5 @@
 'use strict';
+import update from 'react-addons-update';
 
 export function handleonchange(field, format, e) {
     let eleValue = e.target.value;
@@ -35,6 +36,10 @@ export function handleonchange(field, format, e) {
     let value = eletypemap[eleType].apply(this);
 
     let obj = {};
-    obj[field] = value;
+
+    const newData = update(obj, {
+      field: {$set: value}
+    });
+
     this.setState(obj);
 }
