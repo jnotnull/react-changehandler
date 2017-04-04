@@ -19,7 +19,7 @@ support cmd:
 - $set
 - $push
 
-##Install
+## Install
 
 	npm install react-changehandler
 
