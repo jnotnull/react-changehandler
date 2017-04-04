@@ -1,6 +1,6 @@
 {
   "name": "react-changehandler",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "react表单处理利器",
   "main": "./dist/index.js",
   "scripts": {

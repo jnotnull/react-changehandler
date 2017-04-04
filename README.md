@@ -1,15 +1,36 @@
-## react from表单处理利器
+## react-changehandler
 
-##安装 
+react-changehandler designed to make developing react form easier in state components.
+
+Just add `onChange={handleonchange.bind(this, {field: 'formdata.effective_start_time', cmd: '$set', format: 'YYYY-MM-DDTHH:mm'})}` to input, react-changehandler will set value of input to `this.state.formdata.effective_start_time` when the value of input changed.
+
+support input type:
+
+- radio,
+- checkbox,
+- text
+- textarea
+- time
+- date
+- datetime-local
+
+support cmd:
+
+- $set
+- $push
+
+##Install
 
 	npm install react-changehandler
 
-## 使用：在state component中调用如下代码即可
+## Usage
 
-	<input name='form-name' value={this.state.name} onChange={handleonchange.bind(this, 'name', null)} type='text' placeholder='请输入标题'/>
+	import handleonchange from 'react-changehandler';
 
-	<input value={this.state.effective_start_time} onChange={handleonchange.bind(this,'effective_start_time', 'YYYY-MM-DDTHH:mm')} type='datetime-local' placeholder='请输入生效时间'/>
+	<input name='form-name' value={this.state.formdata.name} onChange={handleonchange.bind(this, {field: 'formdata.name', cmd: '$set', format: null})} type='text' placeholder='请输入标题'/>
 
-## 编译
+	<input value={this.state.formdata.effective_start_time} onChange={handleonchange.bind(this, {field: 'formdata.effective_start_time', cmd: '$set', format: 'YYYY-MM-DDTHH:mm'})} type='datetime-local' placeholder='请输入生效时间'/>
+
+## Compile
 
 	babel ./src/index.js --out-file ./dist/index.js

@@ -36,9 +36,7 @@ export default function handleonchange({field, cmd, format}, e) {
 
     let value = eletypemap[eleType].apply(this);
 
-    let obj = {};
-
-    obj = buildPathObject(field, cmd, value);
+    let obj = buildPathObject(field, cmd, value);
 
     const newData = update(this.state, obj);
 
