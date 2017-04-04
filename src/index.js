@@ -1,7 +1,7 @@
 'use strict';
 import update from 'immutability-helper';
 
-export function handleonchange(field, format, e) {
+export default function handleonchange(field, format, e) {
     let eleValue = e.target.value;
     const eleType = e.target.type;
 
@@ -37,9 +37,43 @@ export function handleonchange(field, format, e) {
 
     let obj = {};
 
-    const newData = update(obj, {
-      field: {$set: value}
-    });
+    obj = buildPathObject(field, cmd, value);
 
-    this.setState(obj);
+    const newData = update(this.state, obj);
+
+    this.setState(newData);
+}
+
+function parseField(field) {
+
+    let terms = field.split('.');
+    let result = [];
+
+    terms.map(item => {
+        result.push(item);
+    })
+
+    return result;
+}
+
+function buildPathObject(field, cmd, value){
+    let path = parseField(field);
+    
+    // value
+    let cmdValue = {};
+    cmdValue[cmd] = value;
+
+    //field
+    let result = {};
+    let current = result;
+
+    path.map((item, index) => {
+        if (index < path.length - 1) {
+            current = current[item] = {};
+        } else {
+            current[path[path.length - 1]] = cmdValue;
+        }
+    })
+    
+    return result;
 }
