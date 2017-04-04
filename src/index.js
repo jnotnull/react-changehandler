@@ -2,7 +2,7 @@
 import update from 'immutability-helper';
 import moment from 'moment';
 
-export default function handleonchange(field, format, e) {
+export default function handleonchange({field, cmd, format}, e) {
     let eleValue = e.target.value;
     const eleType = e.target.type;
 

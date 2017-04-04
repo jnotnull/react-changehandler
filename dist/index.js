@@ -15,7 +15,11 @@ var _moment2 = _interopRequireDefault(_moment);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function handleonchange(field, format, e) {
+function handleonchange(_ref, e) {
+    var field = _ref.field,
+        cmd = _ref.cmd,
+        format = _ref.format;
+
     var eleValue = e.target.value;
     var eleType = e.target.type;
 
