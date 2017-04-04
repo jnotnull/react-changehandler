@@ -1,5 +1,6 @@
 'use strict';
 import update from 'immutability-helper';
+import moment from 'moment';
 
 export default function handleonchange(field, format, e) {
     let eleValue = e.target.value;

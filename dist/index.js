@@ -9,6 +9,10 @@ var _immutabilityHelper = require('immutability-helper');
 
 var _immutabilityHelper2 = _interopRequireDefault(_immutabilityHelper);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function handleonchange(field, format, e) {
@@ -36,10 +40,10 @@ function handleonchange(field, format, e) {
             return eleValue;
         },
         'date': function date() {
-            return moment(eleValue).format(format);
+            return (0, _moment2.default)(eleValue).format(format);
         },
         'datetime-local': function datetimeLocal() {
-            return moment(eleValue).format(format);
+            return (0, _moment2.default)(eleValue).format(format);
         }
     };
 
