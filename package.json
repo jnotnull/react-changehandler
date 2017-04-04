@@ -1,7 +1,7 @@
 {
   "name": "react-changehandler",
-  "version": "0.0.8",
-  "description": "react表单处理利器",
+  "version": "0.1.0",
+  "description": "make developing react form easier in state components",
   "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
