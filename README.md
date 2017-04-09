@@ -1,6 +1,6 @@
 ## react-changehandler
 
-<a href="https://nodei.co/npm/react-changehandler/"><img src="https://nodei.co/npm/react-changehandler.png"></a>
+<a href="https://nodei.co/npm/react-changehandler/"><img src="https://nodei.co/npm/react-changehandler.png?downloads=true&downloadRank=true&stars=true"></a>
 
 react-changehandler designed to make developing react form easier in state components.
 
