@@ -1,5 +1,7 @@
 ## react-changehandler
 
+<a href="https://nodei.co/npm/react-changehandler/"><img src="https://nodei.co/npm/react-changehandler.png"></a>
+
 react-changehandler designed to make developing react form easier in state components.
 
 Just add `onChange={handleonchange.bind(this, {field: 'formdata.effective_start_time', cmd: '$set', format: 'YYYY-MM-DDTHH:mm'})}` to input, react-changehandler will set value of input to `this.state.formdata.effective_start_time` when the value of input changed.
