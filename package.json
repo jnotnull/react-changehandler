@@ -1,6 +1,6 @@
 {
   "name": "react-changehandler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "make developing react form easier in state components",
   "main": "./dist/index.js",
   "scripts": {

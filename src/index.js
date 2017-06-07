@@ -2,17 +2,23 @@
 import update from 'immutability-helper';
 import moment from 'moment';
 
-export default function handleonchange({field, cmd, format}, e) {
+export default function handleonchange({field, cmd, format, allfields}, e) {
     let eleValue = e.target.value;
     const eleType = e.target.type;
 
     let eletypemap = {
         'radio': function(){
-            eleValue = e.target.checked;
+            let index = allfields.indexOf(field);
+            allfields.splice(index, 1) 
+            return e.target.checked;
         },
 
         'checkbox': function(){
             return e.target.checked;
+        },
+
+        'select-one': function(){
+            return eleValue;
         },
 
         'text': function(){
@@ -36,9 +42,17 @@ export default function handleonchange({field, cmd, format}, e) {
 
     let value = eletypemap[eleType].apply(this);
 
-    let obj = buildPathObject(field, cmd, value);
+    let obj = {};
+
+    obj = buildPathObject(field, cmd, value);
 
     const newData = update(this.state, obj);
+
+    if (eleType == 'radio') {
+        allfields.map(item => {
+            newData[item] = false;
+        })
+    }
 
     this.setState(newData);
 }

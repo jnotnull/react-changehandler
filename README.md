@@ -28,11 +28,39 @@ support cmd:
 ## Usage
 
 	import handleonchange from 'react-changehandler';
+	
+text:
 
 	<input name='form-name' value={this.state.formdata.name} onChange={handleonchange.bind(this, {field: 'formdata.name', cmd: '$set', format: null})} type='text' placeholder='请输入标题'/>
 
+datetime:
+
 	<input value={this.state.formdata.effective_start_time} onChange={handleonchange.bind(this, {field: 'formdata.effective_start_time', cmd: '$set', format: 'YYYY-MM-DDTHH:mm'})} type='datetime-local' placeholder='请输入生效时间'/>
+
+radio:
+
+	<input type='radio' name='operation' id='operation_equal' checked={this.state.operation_equal === true} onChange={handleonchange.bind(this, {field: 'operation_equal', cmd: '$set', format: null, allfields: ['operation_equal', 'operation_begin', 'operation_include', 'operation_end']})}/>
+
+checkbox:
+
+	<input type='checkbox' value={this.state.editfields[field]} placeholder={'请输入' + name}  onChange={handleonchange.bind(this, {field: "editfields." + field, cmd: '$set', format: null})} />}
+
+select:
+
+	<select value={this.state.operationtype} onChange={handleonchange.bind(this, {field: 'operationtype', cmd: '$set', format: null})}>
+    	{
+    		Object.keys(operationtypemap[this.props.type]).map(item => {
+    			return <option value={item}>{operationtypemap[this.props.type][item]}</option>
+    		})
+    	}
+    	
+    </select>
 
 ## Compile
 
 	babel ./src/index.js --out-file ./dist/index.js
+
+
+## History
+	0.1.0 init
+	0.1.1 2017-06-07 support radio type

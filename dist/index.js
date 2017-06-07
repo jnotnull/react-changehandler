@@ -18,18 +18,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function handleonchange(_ref, e) {
     var field = _ref.field,
         cmd = _ref.cmd,
-        format = _ref.format;
+        format = _ref.format,
+        allfields = _ref.allfields;
 
     var eleValue = e.target.value;
     var eleType = e.target.type;
 
     var eletypemap = {
         'radio': function radio() {
-            eleValue = e.target.checked;
+            var index = allfields.indexOf(field);
+            allfields.splice(index, 1);
+            return e.target.checked;
         },
 
         'checkbox': function checkbox() {
             return e.target.checked;
+        },
+
+        'select-one': function selectOne() {
+            return eleValue;
         },
 
         'text': function text() {
@@ -58,6 +65,12 @@ function handleonchange(_ref, e) {
     obj = buildPathObject(field, cmd, value);
 
     var newData = (0, _immutabilityHelper2.default)(this.state, obj);
+
+    if (eleType == 'radio') {
+        allfields.map(function (item) {
+            newData[item] = false;
+        });
+    }
 
     this.setState(newData);
 }
