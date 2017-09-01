@@ -56,6 +56,20 @@ select:
     	
     </select>
 
+callback:
+
+	<select value={this.state.complaintype} onChange={handleonchange.bind(this, {field: 'complaintype', cmd: '$set', format: null, callback: this.selectcomplaintypecallback.bind(this)})}>
+    	{
+    		Object.keys(complaintypemap).map(item => {
+    			return <option value={complaintypemap[item]}>{complaintypemap[item]}</option>
+    		})
+    	}
+    </select>
+
+    selectcomplaintypecallback(){
+    	
+    }
+
 ## Compile
 
 	babel ./src/index.js --out-file ./dist/index.js
@@ -64,3 +78,4 @@ select:
 ## History
 	0.1.0 init
 	0.1.1 2017-06-07 support radio type
+	0.1.2 2017-01-01 support callback

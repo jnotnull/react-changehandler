@@ -19,7 +19,8 @@ function handleonchange(_ref, e) {
     var field = _ref.field,
         cmd = _ref.cmd,
         format = _ref.format,
-        allfields = _ref.allfields;
+        allfields = _ref.allfields,
+        callback = _ref.callback;
 
     var eleValue = e.target.value;
     var eleType = e.target.type;
@@ -72,7 +73,11 @@ function handleonchange(_ref, e) {
         });
     }
 
-    this.setState(newData);
+    this.setState(newData, function(){
+        if (callback) {
+            callback.apply(this)
+        }
+    });
 }
 
 function parseField(field) {

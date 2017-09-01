@@ -2,7 +2,7 @@
 import update from 'immutability-helper';
 import moment from 'moment';
 
-export default function handleonchange({field, cmd, format, allfields}, e) {
+export default function handleonchange({field, cmd, format, allfields, callback}, e) {
     let eleValue = e.target.value;
     const eleType = e.target.type;
 
@@ -54,7 +54,11 @@ export default function handleonchange({field, cmd, format, allfields}, e) {
         })
     }
 
-    this.setState(newData);
+    this.setState(newData, function(){
+        if (callback) {
+            callback.apply(this)
+        }
+    });
 }
 
 function parseField(field) {
