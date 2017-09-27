@@ -12,6 +12,7 @@ support input type:
 - checkbox,
 - text
 - textarea
+- password
 - time
 - date
 - datetime-local
