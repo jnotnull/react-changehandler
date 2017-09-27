@@ -48,6 +48,10 @@ function handleonchange(_ref, e) {
             return eleValue;
         },
 
+        'password': function password() {
+            return eleValue;
+        },
+
         'time': function time() {
             return eleValue;
         },
@@ -73,9 +77,9 @@ function handleonchange(_ref, e) {
         });
     }
 
-    this.setState(newData, function(){
+    this.setState(newData, function () {
         if (callback) {
-            callback.apply(this)
+            callback.apply(this);
         }
     });
 }

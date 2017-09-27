@@ -29,6 +29,10 @@ export default function handleonchange({field, cmd, format, allfields, callback}
             return eleValue;
         },
 
+        'password': function(){
+            return eleValue;
+        },
+
         'time': function(){
             return eleValue;
         },

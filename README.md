@@ -33,6 +33,10 @@ text:
 
 	<input name='form-name' value={this.state.formdata.name} onChange={handleonchange.bind(this, {field: 'formdata.name', cmd: '$set', format: null})} type='text' placeholder='请输入标题'/>
 
+password:
+
+    <input type="password" placeholder="password" onChange={handleonchange.bind(this, {field: 'password', cmd: '$set', format: null})} />
+
 datetime:
 
 	<input value={this.state.formdata.effective_start_time} onChange={handleonchange.bind(this, {field: 'formdata.effective_start_time', cmd: '$set', format: 'YYYY-MM-DDTHH:mm'})} type='datetime-local' placeholder='请输入生效时间'/>
@@ -79,3 +83,4 @@ callback:
 	0.1.0 init
 	0.1.1 2017-06-07 support radio type
 	0.1.2 2017-09-01 support callback
+    0.1.3 2017-09-27 support password
